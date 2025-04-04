@@ -1,10 +1,8 @@
-NAME = Zombie
+NAME = main
 
 FLAGS = -std=c++98 -Wall -Werror -Wextra
 
 SRC = main.cpp \
-		Zombie.cpp \
-		zombieHorde.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
