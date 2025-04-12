@@ -221,3 +221,34 @@ void triangle::setY(Fixed y) {
     this->y = y;
 }
 
+static float area(triangle const a, triangle const b, triangle const c) {
+    return 0.5f * std::abs(
+        (a.getX() * (b.getY() - c.getY()) +
+         b.getX() * (c.getY() - a.getY()) +
+         c.getX() * (a.getY() - b.getY()))
+    );
+}
+
+bool bsp(triangle const a, triangle const b, triangle const c, triangle const point) {
+    float A = area(a, b, c);  // Area of the whole triangle
+    float A1 = area(point, b, c); // Area of triangle formed by point, b, c
+    float A2 = area(a, point, c); // Area of triangle formed by a, point, c
+    float A3 = area(a, b, point); // Area of triangle formed by a, b, point
+    std::cout << "A: " << A << ", A1: " << A1 << ", A2: " << A2 << ", A3: " << A3 << std::endl;
+    return (A1 > 0 && A2 > 0 && A3 > 0 && (A == A1 + A2 + A3));
+}
+
+int main() {
+    triangle a(Fixed(0), Fixed(0));
+    triangle b(Fixed(5), Fixed(0));
+    triangle c(Fixed(2), Fixed(5));
+    triangle point(Fixed(2), Fixed(2));
+
+    if (bsp(a, b, c, point)) {
+        std::cout << "Point is inside the triangle." << std::endl;
+    } else {
+        std::cout << "Point is outside the triangle." << std::endl;
+    }
+
+    return 0;
+}
