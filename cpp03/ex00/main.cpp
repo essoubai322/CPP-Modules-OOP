@@ -27,7 +27,7 @@ public:
     void setName(const std::string& name) { this->name = name; }
     std::string getName() const { return name; }
     unsigned int getHitPoints() const { return hitPoints; }
-    unsigned int getEnergyPoints() const { return energyPoints; }
+    unsigned int getEnergyPoints() const;
     unsigned int getAttackDamage() const { return attackDamage; }
     void attack(const std::string& target);
     void takeDamage(unsigned int amount);

@@ -1,28 +1,16 @@
-SRCS = Account.cpp tests.cpp
-OBJS = $(SRCS:.cpp=.o)
-NAME = account
-CC = c++
-RM = rm -rf
-FLAGS = -Wall -Wextra -Werror -std=c++98
+NAME = Account
 
-.cpp.o:
-	@$(CC) $(FLAGS) -c $< -o $(<:.cpp=.o)
-	@printf "\033[32m[OK]\033[0m $<\n"
+FLAGS = -std=c++98 -Wall -Werror -Wextra
+
+SRC = Account.cpp tests.cpp
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
-	@printf "\033[32m[OK]\033[0m $(NAME)\n"
+$(NAME): $(SRC)
+	 c++ $(FLAGS) $(SRC) -o $(NAME)
 
-clean:
-	@$(RM) $(OBJS)
-	@printf "\033[32m[OK]\033[0m clean\n"
+fclean:
+	rm -f $(NAME)
 
-fclean: clean
-	@$(RM) $(NAME)
-	@printf "\033[32m[OK]\033[0m fclean\n"
-
-re: fclean all	
-
-.PHONY: all clean fclean re
+re: fclean all
+.phony: all clean fclean re
