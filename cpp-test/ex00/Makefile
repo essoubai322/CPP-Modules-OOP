@@ -2,9 +2,7 @@ NAME = Zombie
 
 FLAGS = -std=c++98 -Wall -Werror -Wextra
 
-SRC = main.cpp \
-		Zombie.cpp \
-		zombieHorde.cpp
+SRC = main.cpp 
 
 all: $(NAME)
 

@@ -7,17 +7,12 @@ SRC = main.cpp \
 		newZombie.cpp \
 		randomChump.cpp
 
-OBJ = $(SRC:%.cpp=%.o)
-
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	 c++ $(FLAGS) $(OBJ) -o $(NAME)
+$(NAME): $(SRC)
+	 c++ $(FLAGS) $(SRC) -o $(NAME)
 
-clean:
-	rm -f $(OBJ)
-
-fclean: clean
+fclean:
 	rm -f $(NAME)
 
 re: fclean all

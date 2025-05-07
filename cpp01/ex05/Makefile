@@ -2,19 +2,14 @@ NAME = main
 
 FLAGS = -std=c++98 -Wall -Werror -Wextra
 
-SRC = main.cpp Harl.cpp 
-
-OBJ = $(SRC:%.cpp=%.o)
+SRC = main.cpp Harl.cpp
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	 c++ $(FLAGS) $(OBJ) -o $(NAME)
+$(NAME): $(SRC)
+	 c++ $(FLAGS) $(SRC) -o $(NAME)
 
-clean:
-	rm -f $(OBJ)
-
-fclean: clean
+fclean:
 	rm -f $(NAME)
 
 re: fclean all
