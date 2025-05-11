@@ -11,13 +11,21 @@ class Fixed
         ~Fixed();
         Fixed &operator=(Fixed &test);
         Fixed(Fixed &copy);
+        Fixed(const int a);
+        Fixed(const float a);
         int getRawBits( void ) const;
         void setRawBits( int const raw );
+        float toFloat( void ) const;
+        int toInt( void ) const;
 };
+
+Fixed::Fixed(const int a)
+{
+    this->nam = a;
+}
 
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
     return (nam);
 }
 void Fixed::setRawBits( int const raw )
@@ -44,13 +52,7 @@ Fixed::Fixed(Fixed &copy)
 
 const int Fixed::frac = 8;
 
-int main( void ) {
-    Fixed a;
-    Fixed b( a );
-    Fixed c;
-    c = b;
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
-    return 0;
+int main( void ) 
+{
+
 }

@@ -136,17 +136,20 @@ float Fixed::operator/(const Fixed &source) const
 {
     return this->toFloat() / source.toFloat();
 }
+
 Fixed &Fixed::operator++()
 {
     this->value++;
     return *this;
 }
+
 Fixed Fixed::operator++(int)
 {
     Fixed temp = *this;
     this->value++;
     return temp;
 }
+
 Fixed &Fixed::operator--()
 {
     this->value--;
