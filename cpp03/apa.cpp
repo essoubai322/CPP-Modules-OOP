@@ -3,10 +3,11 @@
 
 class ClapTrap
 {
-    std::string Name;
-    unsigned int Hit_points;
-    unsigned int Energy;
-    unsigned int AttackDamage;
+    protected:
+        std::string Name;
+        unsigned int Hit_points;
+        unsigned int Energy;
+        unsigned int AttackDamage;
     public :
         ClapTrap();
         ~ClapTrap();
@@ -76,7 +77,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 		    Hit_points = 0;
         else
 	        Hit_points -= amount;
-    }
+    }ScavTrap 
     else
     {
 	    std::cout << Name << " is dead !" << std::endl;
@@ -98,6 +99,22 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 ClapTrap::~ClapTrap() {
     std::cout << "destructor !" << std::endl;
+}
+
+class ScavTrap : public ClapTrap
+{
+    public :
+        ScavTrap();
+        ~ScavTrap();
+        ScavTrap(ScavTrap &copy);
+        ScavTrap(std::string &other);
+        ScavTrap &operator=(ScavTrap &copy);
+        void attack(const std::string& target);
+};
+
+ScavTrap::ScavTrap() : ClapTrap
+{
+
 }
 
 
