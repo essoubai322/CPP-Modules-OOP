@@ -1,8 +1,8 @@
-NAME = Fixed
+NAME = ClapTrap
 
 FLAGS = -std=c++98 -Wall -Werror -Wextra
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp ClapTrap.cpp
 
 all: $(NAME)
 

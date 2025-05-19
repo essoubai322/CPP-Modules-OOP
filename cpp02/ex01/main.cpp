@@ -52,12 +52,12 @@ void Fixed::setRawBits( int const raw ) {
     this->value = raw;
 }
 
-Fixed::Fixed(int n) : value(n * 256)
+Fixed::Fixed(int n) : value(n * (pow(2, fractional)))
 {
     std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(float n) : value(roundf(n * 256)) 
+Fixed::Fixed(float n) : value(roundf(n * (pow(2, fractional)))) 
 {
     std::cout << "Float constructor called" << std::endl;
 }
