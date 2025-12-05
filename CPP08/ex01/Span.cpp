@@ -44,7 +44,8 @@ int Span::shortestSpan() const
 	int min = std::numeric_limits<int>::max();
 	while (it != temp.end())
 	{
-		next = std::next(it);
+		next = it;
+		++next;
 		if (next != temp.end())
 			min = std::min(min, *next - *it);
 		it++;

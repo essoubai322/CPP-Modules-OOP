@@ -1,8 +1,6 @@
 #include <iostream>
-
 #include "MutantStack.hpp"
 
-#include <list>
 int main()
 {
 	MutantStack<int> mstack;
@@ -19,20 +17,11 @@ int main()
 	MutantStack<int>::iterator ite = mstack.end();
 	++it;
 	--it;
-	std::cout << "---- printing from mutantstack ----" << std::endl;
 	while (it != ite)
 	{
-	std::cout << *it << std::endl;
-	++it;
+		std::cout << *it << std::endl;
+		++it;
 	}
 	std::stack<int> s(mstack);
-	std::list<int> l(mstack.begin(), mstack.end());
-	std::list<int>::iterator lit = l.begin();
-	std::cout << "---- printing from list ----" << std::endl;
-	while (lit != l.end())
-	{
-		std::cout << *lit << std::endl;
-		lit++;
-	}
 	return 0;
 }
